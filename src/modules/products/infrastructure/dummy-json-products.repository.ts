@@ -5,6 +5,19 @@ import type { ProductsResponse } from "../domain/product-response.entity";
 const BASE_URL = "https://dummyjson.com";
 
 export class DummyJsonProductsRepository implements ProductRepository {
+  async getProducts(limit = 20, skip = 0): Promise<ProductsResponse> {
+    const response = await fetch(
+      `${BASE_URL}/products?limit=${limit}&skip=${skip}`,
+      { cache: "no-store" },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
+    }
+
+    return response.json();
+  }
+  
   async searchProducts(query: string, limit = 20): Promise<ProductsResponse> {
     const response = await fetch(
       `${BASE_URL}/products/search?q=${query}&limit=${limit}`,
@@ -60,4 +73,3 @@ export class DummyJsonProductsRepository implements ProductRepository {
       .slice(0, limit);
   }
 }
-

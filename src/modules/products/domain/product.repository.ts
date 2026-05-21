@@ -5,4 +5,5 @@ export interface ProductRepository {
   searchProducts(query: string, limit?: number): Promise<ProductsResponse>;
   getProductBySku(sku: string): Promise<Product | null>;
   getCategories(limit?: number): Promise<string[]>;
+  getProducts(limit?: number, skip?: number): Promise<ProductsResponse>;
 }
