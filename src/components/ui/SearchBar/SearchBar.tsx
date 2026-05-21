@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 
 export function SearchBar() {
@@ -34,4 +33,3 @@ export function SearchBar() {
     </form>
   );
 }
-
