@@ -29,5 +29,3 @@ export function EmptyProductsState({ categories }: EmptyProductsStateProps) {
     </section>
   );
 }
-
-

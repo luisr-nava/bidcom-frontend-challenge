@@ -2,18 +2,23 @@ import type { Product } from "../domain/product.entity";
 import type { ProductRepository } from "../domain/product.repository";
 import type { ProductsResponse } from "../domain/product-response.entity";
 
-const BASE_URL = process.env.NEXT_PUBLIC_DUMMYJSON_API_URL;
+const BASE_URL =
+  process.env.NEXT_PUBLIC_DUMMYJSON_API_URL ?? "https://dummyjson.com";
 
 export class DummyJsonProductsRepository implements ProductRepository {
   async getProducts(limit = 20, skip = 0): Promise<ProductsResponse> {
     const params = new URLSearchParams({
+      q: "",
       limit: String(limit),
       skip: String(skip),
     });
 
-    const response = await fetch(`${BASE_URL}/products?${params.toString()}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      `${BASE_URL}/products/search?${params.toString()}`,
+      {
+        cache: "no-store",
+      },
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
@@ -23,13 +28,13 @@ export class DummyJsonProductsRepository implements ProductRepository {
   }
 
   async searchProducts(query: string, limit = 20): Promise<ProductsResponse> {
-    const params = new URLSearchParams({
+    const searchParams = new URLSearchParams({
       q: query,
       limit: String(limit),
     });
 
-    const response = await fetch(
-      `${BASE_URL}/products/search?${params.toString()}`,
+    const searchResponse = await fetch(
+      `${BASE_URL}/products/search?${searchParams.toString()}`,
       {
         next: {
           revalidate: 60,
@@ -37,11 +42,17 @@ export class DummyJsonProductsRepository implements ProductRepository {
       },
     );
 
-    if (!response.ok) {
+    if (!searchResponse.ok) {
       throw new Error("Failed to fetch products");
     }
 
-    return response.json();
+    const searchData: ProductsResponse = await searchResponse.json();
+
+    if (searchData.products.length > 0 || !query) {
+      return searchData;
+    }
+
+    return this.getProductsByCategory(query, limit);
   }
   async getProductBySku(sku: string): Promise<Product | null> {
     const response = await fetch(`${BASE_URL}/products?limit=200`, {
@@ -79,5 +90,27 @@ export class DummyJsonProductsRepository implements ProductRepository {
       })
       .filter(Boolean)
       .slice(0, limit);
+  }
+  
+  async getProductsByCategory(
+    category: string,
+    limit = 20,
+  ): Promise<ProductsResponse> {
+    const params = new URLSearchParams({
+      limit: String(limit),
+    });
+
+    const response = await fetch(
+      `${BASE_URL}/products/category/${encodeURIComponent(category)}?${params.toString()}`,
+      {
+        cache: "no-store",
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products by category");
+    }
+
+    return response.json();
   }
 }

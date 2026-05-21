@@ -6,4 +6,8 @@ export interface ProductRepository {
   getProductBySku(sku: string): Promise<Product | null>;
   getCategories(limit?: number): Promise<string[]>;
   getProducts(limit?: number, skip?: number): Promise<ProductsResponse>;
+  getProductsByCategory(
+    category: string,
+    limit?: number,
+  ): Promise<ProductsResponse>;
 }
