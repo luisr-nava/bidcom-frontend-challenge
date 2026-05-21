@@ -19,10 +19,10 @@ export function Header() {
               priority
             />
           </Link>
-          <div className="mx-auto w-full max-w-[700px] px-6">
+          <div className="mx-auto w-full max-w-175 px-6">
             <SearchBar />
           </div>
-          <div className="w-[130px]" />
+          <div className="w-32.5" />
         </div>
       </Container>
     </header>
