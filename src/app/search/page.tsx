@@ -40,8 +40,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         ) : (
           <EmptyProductsState categories={categories} />
         )}
-
-        <ProductGrid products={productsResponse.products} />
       </Container>
     </main>
   );

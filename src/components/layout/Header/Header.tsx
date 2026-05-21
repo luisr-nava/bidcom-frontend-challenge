@@ -8,7 +8,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-azul-bidcom py-4 shadow-sm">
       {" "}
       <Container className="max-w-full">
-        <div className="grid items-center gap-4 md:grid-cols-[auto_1fr_auto] pt-2 md:pt-0">
+        <div className="grid grid-cols-1 items-center gap-4 pt-2 md:grid-cols-[auto_1fr_auto] md:pt-0">
           {" "}
           <Link href="/" className="mx-auto md:mx-0">
             <Image
