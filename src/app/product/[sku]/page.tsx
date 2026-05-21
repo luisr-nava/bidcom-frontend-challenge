@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { getProductBySku } from "@/modules/products/application/get-product-by-sku.use-case";
 
 import { PriceInfo } from "@/modules/products/presentation/components/PriceInfo";
+import { BackButton } from "@/components/ui/BackButton";
 
 interface ProductPageProps {
   params: Promise<{
@@ -24,8 +25,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   return (
-    <main className="bg-light py-8">
+    <main className="min-h-[calc(100vh-72px)] bg-light pt-8">
       <Container>
+        <div className="mb-4">
+          <BackButton />
+        </div>
         <section className="grid gap-8 rounded-md bg-white p-6 md:grid-cols-2">
           <div className="space-y-4">
             <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-md bg-gray-100">

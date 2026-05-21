@@ -10,8 +10,11 @@ export function SearchBar() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!query.trim()) return;
+
     router.push(`/search?s=${encodeURIComponent(query.trim())}`);
+    setQuery("");
   };
   return (
     <form onSubmit={handleSubmit} className="w-full">

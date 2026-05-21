@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container";
+import { BackButton } from "@/components/ui/BackButton";
 import { getCategories } from "@/modules/products/application/get-categories.use-case";
 import { getProductsBySearch } from "@/modules/products/application/get-products-by-search.use-case";
 import { EmptyProductsState } from "@/modules/products/presentation/components/EmptyProductsState";
@@ -20,8 +21,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const categories = hasProducts ? [] : await getCategories();
 
   return (
-    <main className="bg-light py-6">
+    <main className="min-h-[calc(100vh-72px)] bg-light pt-6">
       <Container>
+        <div className="mb-4">
+          <BackButton href="/" label="Volver al inicio" />
+        </div>
         <div className="mb-5">
           <h1 className="text-xl font-semibold text-gray-900">
             Resultados de búsqueda
