@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { notFound } from "next/navigation";
 import { Star } from "lucide-react";
 
@@ -8,6 +8,7 @@ import { getProductBySku } from "@/modules/products/application/get-product-by-s
 
 import { PriceInfo } from "@/modules/products/presentation/components/PriceInfo";
 import { BackButton } from "@/components/ui/BackButton";
+import { ProductImageGallery } from "@/modules/products/presentation/components/ProductImageGallery";
 
 interface ProductPageProps {
   params: Promise<{
@@ -31,31 +32,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <BackButton />
         </div>
         <section className="grid gap-8 rounded-md bg-white p-6 md:grid-cols-2">
-          <div className="space-y-4">
-            <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-md bg-gray-100">
-              <Image
-                src={product.thumbnail}
-                alt={product.title}
-                fill
-                className="object-contain p-6"
-              />
-            </div>
-
-            <div className="grid grid-cols-4 gap-3">
-              {product.images.slice(0, 4).map((image) => (
-                <div
-                  key={image}
-                  className="relative aspect-square overflow-hidden rounded border border-gray-200 bg-gray-100">
-                  <Image
-                    src={image}
-                    alt={product.title}
-                    fill
-                    className="object-contain p-2"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <ProductImageGallery
+            title={product.title}
+            thumbnail={product.thumbnail}
+            images={product.images}
+          />
 
           <div>
             <p className="mb-2 text-sm text-grey-666">{product.category}</p>
