@@ -86,21 +86,80 @@
 }
 
 @theme inline {
+  /* =========================
+     COLORS
+  ========================== */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-azul-bidcom: var(--azul-bidcom);
+  --color-azul-activo: var(--azul-activo);
+  --color-hover-clickable: var(--hover-clickable);
+
+  --color-green-discount: var(--green-discount);
+  --color-green-tag: var(--green-tag);
+
+  --color-blue-just-today: var(--blue-just-today);
+  --color-blue-outlet: var(--blue-outlet);
+
+  --color-pink-used: var(--pink-used);
+
+  --color-light-blue-recommended: var(--light-blue-recommended);
+
+  --color-warranty: var(--warranty);
+
+  --color-orange-preventa: var(--orange-preventa);
+
+  /* =========================
+     GRAYS
+  ========================== */
+
+  --color-grey-999: var(--grey-999);
+  --color-grey-666: var(--grey-666);
+
+  --color-gray: var(--gray);
+  --color-gray-dark: var(--gray-dark);
+
+  /* =========================
+     SYSTEM COLORS
+  ========================== */
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-light: var(--light);
+  --color-dark: var(--dark);
+
+  --color-white: var(--white);
+
+  /* =========================
+     TYPOGRAPHY
+  ========================== */
+
+  --font-sans: var(--font-family-sans-serif);
+  --font-mono: var(--font-family-monospace);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-sans-serif);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
+
