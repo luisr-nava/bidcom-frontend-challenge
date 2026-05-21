@@ -29,7 +29,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
           {searchTerm && (
             <p className="mt-1 text-sm text-grey-666">
-              Productos encontrados para:{" "}
+              Productos encontrados para:
               <span className="font-semibold">{searchTerm}</span>
             </p>
           )}
@@ -40,10 +40,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         ) : (
           <EmptyProductsState categories={categories} />
         )}
-
-        <ProductGrid products={productsResponse.products} />
       </Container>
     </main>
   );
 }
-

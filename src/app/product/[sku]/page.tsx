@@ -77,19 +77,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             <div className="mt-6 rounded-md border border-gray-200 bg-gray-50 p-4">
               <p className="text-sm text-gray-700">
-                Stock disponible:{" "}
+                Stock disponible:
                 <span className="font-semibold">{product.stock}</span>
               </p>
 
               <p className="mt-2 text-sm text-gray-700">
-                Marca:{" "}
+                Marca:
                 <span className="font-semibold">
                   {product.brand ?? "Sin marca"}
                 </span>
               </p>
 
               <p className="mt-2 text-sm text-gray-700">
-                Garantía:{" "}
+                Garantía:
                 <span className="font-semibold">
                   {product.warrantyInformation}
                 </span>

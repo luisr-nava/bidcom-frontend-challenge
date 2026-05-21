@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 
 export function SearchBar() {
@@ -12,7 +11,7 @@ export function SearchBar() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!query.trim()) return;
-    router.push(`/search?s=${encodeURIComponent(query)}`);
+    router.push(`/search?s=${encodeURIComponent(query.trim())}`);
   };
   return (
     <form onSubmit={handleSubmit} className="w-full">
@@ -34,4 +33,3 @@ export function SearchBar() {
     </form>
   );
 }
-
