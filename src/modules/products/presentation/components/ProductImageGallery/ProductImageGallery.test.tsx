@@ -28,13 +28,11 @@ describe("ProductImageGallery", () => {
       />,
     );
 
-    const secondThumbnail = screen.getByAltText("iPhone 2");
-
+    const secondThumbnail = screen.getByLabelText("Ver imagen 3 de iPhone");
     fireEvent.click(secondThumbnail);
 
-    expect(screen.getByAltText("iPhone")).toHaveAttribute(
-      "src",
-      expect.stringContaining("Image%2B2"),
-    );
+    const mainImage = screen.getByAltText("iPhone");
+
+    expect(mainImage.getAttribute("src")).toContain("Image%2B2");
   });
 });

@@ -2,6 +2,8 @@ import { ProductCard } from "../ProductCard";
 import type { ProductGridProps } from "./ProductGrid.types";
 
 export function ProductGrid({ products }: ProductGridProps) {
+  console.log(products);
+  
   return (
     <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {products.map((product) => (
@@ -11,6 +13,9 @@ export function ProductGrid({ products }: ProductGridProps) {
           title={product.title}
           price={product.price}
           thumbnail={product.thumbnail}
+          rating={product.rating}
+          discountPercentage={product.discountPercentage}
+          stock={product.stock}
         />
       ))}
     </section>

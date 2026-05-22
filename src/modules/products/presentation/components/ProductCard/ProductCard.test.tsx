@@ -11,6 +11,9 @@ describe("ProductCard", () => {
         title="iPhone 15 Pro Max"
         price={1899999}
         thumbnail="https://dummyjson.com/image/400x400/ffffff/111111?text=iPhone"
+        rating={4.8}
+        discountPercentage={10}
+        stock={10}
       />,
     );
 
@@ -23,4 +26,3 @@ describe("ProductCard", () => {
     expect(screen.getByAltText("iPhone 15 Pro Max")).toBeDefined();
   });
 });
-

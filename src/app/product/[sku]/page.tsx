@@ -1,14 +1,14 @@
-
 import { notFound } from "next/navigation";
-import { Star } from "lucide-react";
 
 import { Container } from "@/components/layout/Container";
 
 import { getProductBySku } from "@/modules/products/application/get-product-by-sku.use-case";
 
-import { PriceInfo } from "@/modules/products/presentation/components/PriceInfo";
 import { BackButton } from "@/components/ui/BackButton";
 import { ProductImageGallery } from "@/modules/products/presentation/components/ProductImageGallery";
+import { ProductPurchasePanel } from "@/modules/products/presentation/components/ProductPurchasePanel";
+import { ProductDetailsSection } from "@/modules/products/presentation/components/ProductDetailsSection";
+import { ProductReviews } from "@/modules/products/presentation/components/ProductReviews";
 
 interface ProductPageProps {
   params: Promise<{
@@ -37,62 +37,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
             thumbnail={product.thumbnail}
             images={product.images}
           />
-
-          <div>
-            <p className="mb-2 text-sm text-grey-666">{product.category}</p>
-
-            <h1 className="text-2xl font-semibold text-gray-900">
-              {product.title}
-            </h1>
-
-            <div className="mt-3 flex items-center gap-2">
-              <Star size={18} className="fill-yellow-400 text-yellow-400" />
-
-              <span className="text-sm font-medium text-gray-700">
-                {product.rating}
-              </span>
-            </div>
-
-            <div className="mt-6">
-              <PriceInfo
-                price={product.price}
-                discountPercentage={product.discountPercentage}
-              />
-            </div>
-
-            <div className="mt-6 rounded-md border border-gray-200 bg-gray-50 p-4">
-              <p className="text-sm text-gray-700">
-                Stock disponible:
-                <span className="font-semibold">{product.stock}</span>
-              </p>
-
-              <p className="mt-2 text-sm text-gray-700">
-                Marca:
-                <span className="font-semibold">
-                  {product.brand ?? "Sin marca"}
-                </span>
-              </p>
-
-              <p className="mt-2 text-sm text-gray-700">
-                Garantía:
-                <span className="font-semibold">
-                  {product.warrantyInformation}
-                </span>
-              </p>
-            </div>
-
-            <div className="mt-6">
-              <h2 className="text-lg font-semibold text-gray-900">
-                Descripción
-              </h2>
-
-              <p className="mt-2 text-sm leading-6 text-grey-666">
-                {product.description}
-              </p>
-            </div>
-          </div>
+          <ProductPurchasePanel product={product} />
         </section>
       </Container>
+      <ProductDetailsSection product={product} />
+      <ProductReviews product={product} />
     </main>
   );
 }
