@@ -61,7 +61,6 @@ describe("ProductReviews", () => {
     render(<ProductReviews product={product} />);
 
     expect(screen.getByText("Opiniones")).toBeDefined();
-    expect(screen.getByText("Fotos")).toBeDefined();
     expect(screen.getByText("2.9")).toBeDefined();
     expect(screen.getByText("En promedio de 2 opiniones")).toBeDefined();
 

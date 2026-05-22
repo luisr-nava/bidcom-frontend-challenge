@@ -67,15 +67,11 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
       </div>
 
       <div className="mt-5 flex items-center justify-center gap-4 rounded-full border border-gray-300 py-1 text-sm">
-        <button type="button" className="px-2 text-lg text-grey-666">
-          -
-        </button>
+        <span className="px-2 text-lg text-grey-666">-</span>
 
         <span>1</span>
 
-        <button type="button" className="px-2 text-lg text-azul-bidcom">
-          +
-        </button>
+        <span className="px-2 text-lg text-azul-bidcom">+</span>
 
         <span className="text-xs text-grey-666">
           ({product.stock} disponibles)
@@ -110,3 +106,4 @@ export function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
     </aside>
   );
 }
+

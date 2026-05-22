@@ -4,16 +4,25 @@ import { Star } from "lucide-react";
 import type { ProductReviewsProps } from "./ProductReviews.types";
 
 export function ProductReviews({ product }: ProductReviewsProps) {
+  if (product.reviews.length === 0) {
+    return (
+      <section className="mt-10 bg-white px-4 py-10">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-2xl font-semibold text-gray-900">Opiniones</h2>
+
+          <p className="mt-4 text-sm text-grey-666">
+            Este producto todavía no tiene opiniones.
+          </p>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="mt-10 bg-white px-4 py-10">
       <div className="mx-auto max-w-5xl">
         <div className="flex items-center gap-6 border-b border-gray-200 pb-3">
           <button className="border-b-2 border-azul-bidcom pb-2 text-lg font-semibold text-gray-900">
             Opiniones
-          </button>
-
-          <button className="pb-2 text-lg font-semibold text-grey-666">
-            Fotos
           </button>
         </div>
 
@@ -89,3 +98,4 @@ export function ProductReviews({ product }: ProductReviewsProps) {
     </section>
   );
 }
+
