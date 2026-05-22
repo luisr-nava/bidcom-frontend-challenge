@@ -14,13 +14,13 @@ describe("ProductCard", () => {
       />,
     );
 
-    expect(screen.getByText("iPhone 15 Pro Max")).toBeInTheDocument();
-    expect(screen.getByText("$1.899.999")).toBeInTheDocument();
+    expect(screen.getByText("iPhone 15 Pro Max")).toBeDefined();
+    expect(screen.getByText("$1.899.999")).toBeDefined();
 
     const link = screen.getByRole("link");
 
     expect(link).toHaveAttribute("href", "/product/MOB-APP-APP-101");
-    expect(screen.getByAltText("iPhone 15 Pro Max")).toBeInTheDocument();
+    expect(screen.getByAltText("iPhone 15 Pro Max")).toBeDefined();
   });
 });
 

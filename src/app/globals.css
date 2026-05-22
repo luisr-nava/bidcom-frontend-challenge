@@ -8,22 +8,9 @@
   ========================== */
 
   --azul-bidcom: #0000ff;
-  --azul-activo: #0000ee;
   --hover-clickable: #0000a8;
 
   --green-discount: #478438;
-  --green-tag: #478438;
-
-  --blue-just-today: #004da0;
-  --blue-outlet: #0074de;
-
-  --pink-used: #ea83ff;
-
-  --light-blue-recommended: #7db1ff;
-
-  --warranty: #7a4ffd;
-
-  --orange-preventa: #f99f1c;
 
   /* =========================
      GRAYS
@@ -32,23 +19,13 @@
   --grey-999: #999999;
   --grey-666: #666666;
 
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-
   /* =========================
      SYSTEM COLORS
   ========================== */
 
-  --primary: #007bff;
-  --secondary: #6c757d;
-
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
   --danger: #dc3545;
 
   --light: #f8f9fa;
-  --dark: #343a40;
 
   --white: #ffffff;
 
@@ -94,22 +71,9 @@
   --color-foreground: var(--foreground);
 
   --color-azul-bidcom: var(--azul-bidcom);
-  --color-azul-activo: var(--azul-activo);
   --color-hover-clickable: var(--hover-clickable);
 
   --color-green-discount: var(--green-discount);
-  --color-green-tag: var(--green-tag);
-
-  --color-blue-just-today: var(--blue-just-today);
-  --color-blue-outlet: var(--blue-outlet);
-
-  --color-pink-used: var(--pink-used);
-
-  --color-light-blue-recommended: var(--light-blue-recommended);
-
-  --color-warranty: var(--warranty);
-
-  --color-orange-preventa: var(--orange-preventa);
 
   /* =========================
      GRAYS
@@ -118,23 +82,13 @@
   --color-grey-999: var(--grey-999);
   --color-grey-666: var(--grey-666);
 
-  --color-gray: var(--gray);
-  --color-gray-dark: var(--gray-dark);
-
   /* =========================
      SYSTEM COLORS
   ========================== */
 
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-
-  --color-success: var(--success);
-  --color-info: var(--info);
-  --color-warning: var(--warning);
   --color-danger: var(--danger);
 
   --color-light: var(--light);
-  --color-dark: var(--dark);
 
   --color-white: var(--white);
 

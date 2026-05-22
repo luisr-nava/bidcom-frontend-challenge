@@ -21,6 +21,7 @@ describe("Pagination", () => {
       "href",
       "/?page=3",
     );
+    expect(screen.getByText("2")).toBeDefined();
   });
 
   it("renders previous link to the first page as root", () => {

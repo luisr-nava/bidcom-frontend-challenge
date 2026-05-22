@@ -3,21 +3,20 @@ import { describe, expect, it } from "vitest";
 
 import { EmptyProductsState } from "./EmptyProductsState";
 
+const mockCategories = ["smartphones", "laptops", "fragrances"];
 describe("EmptyProductsState", () => {
   it("renders empty message and category links", () => {
     render(
       <EmptyProductsState
-        categories={["smartphones", "laptops", "fragrances"]}
+        categories={mockCategories}
       />,
     );
 
-    expect(
-      screen.getByText("No se encontró ningún producto."),
-    ).toBeInTheDocument();
+    expect(screen.getByText("No se encontró ningún producto.")).toBeDefined();
 
     expect(
       screen.getByText("Te recomendamos buscar estas categorías"),
-    ).toBeInTheDocument();
+    ).toBeDefined();
 
     expect(screen.getByRole("link", { name: "smartphones" })).toHaveAttribute(
       "href",
@@ -27,6 +26,11 @@ describe("EmptyProductsState", () => {
     expect(screen.getByRole("link", { name: "laptops" })).toHaveAttribute(
       "href",
       "/search?s=laptops",
+    );
+
+    expect(screen.getByRole("link", { name: "fragrances" })).toHaveAttribute(
+      "href",
+      "/search?s=fragrances",
     );
   });
 });

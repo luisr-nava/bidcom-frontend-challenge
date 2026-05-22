@@ -13,7 +13,7 @@ describe("ProductImageGallery", () => {
       />,
     );
 
-    expect(screen.getByAltText("iPhone")).toBeInTheDocument();
+    expect(screen.getByAltText("iPhone")).toBeDefined();
   });
 
   it("changes selected image when clicking a thumbnail", () => {
@@ -34,7 +34,7 @@ describe("ProductImageGallery", () => {
 
     expect(screen.getByAltText("iPhone")).toHaveAttribute(
       "src",
-      expect.stringContaining("Image+2"),
+      expect.stringContaining("Image%2B2"),
     );
   });
 });

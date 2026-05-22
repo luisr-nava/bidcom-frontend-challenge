@@ -7,18 +7,18 @@ describe("PriceInfo", () => {
   it("renders formatted current price", () => {
     render(<PriceInfo price={1500000} discountPercentage={20} />);
 
-    expect(screen.getByText("$1.500.000")).toBeInTheDocument();
+    expect(screen.getByText("$1.500.000")).toBeDefined();
   });
 
   it("renders formatted original price", () => {
     render(<PriceInfo price={1500000} discountPercentage={20} />);
 
-    expect(screen.getByText("$1.875.000")).toBeInTheDocument();
+    expect(screen.getByText("$1.875.000")).toBeDefined();
   });
 
   it("renders discount percentage", () => {
     render(<PriceInfo price={1500000} discountPercentage={20} />);
 
-    expect(screen.getByText("-20%")).toBeInTheDocument();
+    expect(screen.getByText("-20%")).toBeDefined();
   });
 });
